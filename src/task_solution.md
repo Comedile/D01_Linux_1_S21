@@ -164,7 +164,7 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 
 - Необходимо, чтобы было: `config: disabled`
 
-    ![](screens/part3.check_otkl_DHCP)
+    ![](screens/part3.check_otkl_DHCP.png)
 
 - Откроем файл конфигурации `netplan` в текстовом редакторе `vim` с помощью команды:
     ```
