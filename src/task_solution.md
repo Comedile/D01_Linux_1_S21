@@ -259,7 +259,9 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     groups newuser
     ```
+
     ![](screens/part5.1.png)
+
 - На скриншоте видно, что пользователь был добавлен в группу `sudo`. Это дает ему возможность выполнять команду `sudo`.
 
 - >Sudo (Substitute user and do - подменить пользователя и выполнить) – это утилита для операционных систем семейства Linux, позволяющая пользователю запускать программы с привилегиями другой учётной записи, как правило, суперпользователя.
@@ -268,7 +270,9 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     su newuser
     ```
+
     ![](screens/part5.user_change.png)
+
 - Чтобы узнать текущее имя хоста воспользуемся командой:
     ```
     hostnamectl
@@ -281,6 +285,7 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     hostname
     ```
+
     ![](screens/part5.измен_имя_хоста.png)
 
 - Выполним перезагрузку машины командой `reboot` и проверим сохранность изменений:
@@ -306,7 +311,9 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     timedatectl show
     ```
+
     ![](screens/part6.png)
+
 - >На скриншоте видно, что вывод команды `timedatectl show` содержит `NTPSynchronized=yes`, это соответствует требованию задания. Данная запись свидетельствует о том, что протокол NTP (сетевой протокол времени) активен. NTP - это протокол, отвечающий за синхронизацию времени компьютера со стандартными эталонными часами через интернет с помощью иерархии серверов NTP.
 
 ## Part 7. Установка и использование текстовых редакторов 
@@ -401,7 +408,7 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 - **VIM**
 
     - Поиск:
-        `ESC + /<слово_для_поиска>`
+    `ESC + /<слово_для_поиска>`
     
     ![](screens/part7.vim_findword.png)
 
@@ -504,6 +511,7 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     netstat -tan
     ```
+
     ![](screens/part8.вывод_нетстат.png)
 
 - Как видно на скриншоте, вывод команды содержит `tcp 0 0 0.0.0.0:2022 0.0.0.0:* LISTEN`, что соответствует требованию задания.
@@ -644,7 +652,7 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 
     ![](screens/part11.df_дисковое_пространство_корневого_каталога.png)
 
-    - >Для корневого раздела (/):\
+    >Для корневого раздела (/):\
         - Размер раздела: 10218772;\
         - Размер занятого пространства: 5772104;\
         - Размер свободного пространства: 3905996;\
@@ -657,7 +665,7 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 
     ![](screens/part11.df_Th.png)
 
-    - >Для корневого раздела (/):\
+    >Для корневого раздела (/):\
         - Размер раздела: 9.8;\
         - Размер занятого пространства: 5.6;\
         - Размер свободного пространства: 3.8;\
