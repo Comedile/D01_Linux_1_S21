@@ -34,14 +34,14 @@
 
 - Создадим нового пользователя `(newuser)` с помощью команды:
     ```
-    adduser newuser
+    sudo adduser newuser
     ```
 
     ![](screens/part2.11.png)
 
 - Добавим нового пользователя `(newuser)` в группу `adm` с помощью команды:
     ```
-    usermod -a -G adm newuser
+    sudo usermod -a -G adm newuser
     ```
 
     ![](screens/part2.33.png)
@@ -126,7 +126,8 @@
     ```
 
     ![](screens/part3.DHCPgrep.png)
-    На скриншоте видно, что DHCP выдал компьютеру ip адрес: 10.0.2.15/24
+    
+- На скриншоте видно, что DHCP выдал компьютеру ip адрес: 10.0.2.15/24
 
 - Также ip адрес машины, выданный ей DHCP сервером, можно узнать с помощью команды: 
     ```
@@ -281,7 +282,9 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     hostname
     ```
     ![](screens/part5.измен_имя_хоста.png)
+
 - Выполним перезагрузку машины командой `reboot` и проверим сохранность изменений:
+
     ![](screens/part5.last.png)
 
 ## Part 6. Установка и настройка службы времени
@@ -338,38 +341,55 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
 ---
 ### Запись никнейма в файлы и закрытие с сохранением
+
 - VIM. Запишем никнейм `comedile`:
+
     ![](screens/part7.vim1.png)
-    Для выхода с сохранением изменений нужно нажать `ESC`, затем написать `:wq`, что означает write and quit.
+
+    - Для выхода с сохранением изменений нужно нажать `ESC`, затем написать `:wq`, что означает write and quit.
 
 - NANO. Запишем никнейм `comedile`:
+
     ![](screens/part7.nano1.png)
-    Для выхода с сохранением изменений нужно нажать `Ctrl+S` и затем `Ctrl+X`.
+
+    - Для выхода с сохранением изменений нужно нажать `Ctrl+S` и затем `Ctrl+X`.
 
 - MCEDIT. Запишем никнейм `comedile`:
+
     ![](screens/part7.mcedit1.1.png)
-    Для выхода с сохранением изменений нужно нажать `F10` и выбрать `Yes`
+
+    - Для выхода с сохранением изменений нужно нажать `F10` и выбрать `Yes`
+
     ![](screens/part7.mcedit1.2.png)
 
 ---
 ### Запись "21 School 21" в файлы с выходом без сохранения
+
 - VIM. Запишем "21 School 21":
+
     ![](screens/part7.vim2.png)
-    Для выхода без сохранения нужно нажать `ESC`, затем написать `:q!`. Проверим, что изменения не сохранились:
+
+    - Для выхода без сохранения нужно нажать `ESC`, затем написать `:q!`. Проверим, что изменения не сохранились:
 
     ![](screens/part7vim.png)
 
 - NANO. Запишем "21 School 21":
+
     ![](screens/part7.nano2.png)
-    Для выхода без сохранения изменений нужно нажать `Ctrl+X`. Проверим, что изменения не сохранились:
+
+    - Для выхода без сохранения изменений нужно нажать `Ctrl+X`. Проверим, что изменения не сохранились:
 
     ![](screens/part7.nano.png)
 
 - MCEDIT. Запишем "21 School 21":
+
     ![](screens/part7.mcedit2.png)
-    Для выхода без сохранения изменений нужно нажать `F10` и выбрать `No`
+
+    - Для выхода без сохранения изменений нужно нажать `F10` и выбрать `No`
+
     ![](screens/part7.mcedit2.1.png)
-    Проверим, что изменения не сохранились:
+
+    - Проверим, что изменения не сохранились:
 
     ![](screens/part7.mcedit.png)
 
@@ -380,24 +400,26 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 
 - **VIM**
 
-    Поиск:
-    `ESC + /<слово_для_поиска>`
+    - Поиск:
+        `ESC + /<слово_для_поиска>`
     
     ![](screens/part7.vim_findword.png)
 
-    Замена:
+    - Замена:
     `:s/<заменяемое>/<заменитель>`
+
     ![](screens/part7.vim_замена_слова.png)
 
 - **NANO**
 
-    Поиск:
+    - Поиск:
     `Ctrl + W`
     
     ![](screens/part7.nano_поискслова.png)
 
-    Замена:
+    - Замена:
     `Ctrl + \`
+
     ![](screens/part7.nano_замена_слова1.png)
 
     ![](screens/part7.nano_замена_слова2.png)
@@ -406,14 +428,14 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 
 - **MCEDIT**
 
-    Поиск:
+    - Поиск:
     `F7`
     
     ![](screens/part7.mcedit_поиск_слова1.png)
 
     ![](screens/part7.mcedit_поиск_слова2.png)
 
-    Замена:
+    - Замена:
     `F4`
 
     ![](screens/part7.mcedit_замена_слова_1.png)
@@ -448,6 +470,7 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     sudo systemctl status ssh
     ```
+
     ![](screens/part8.включение_автозапуск_сервиса.png)
 
 - Как видно на скриншоте, автостарт SSHd службы добавлен автоматически при загрузке. Чтобы включить автостарт можно воспользоваться командой `sudo systemctl enable ssh`, для выключения автостарта команда `sudo systemctl disable ssh`.
@@ -457,12 +480,14 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     sudo nano /etc/ssh/sshd_config
     ```
 - Изменим значение параметра `Port` с 22 на 2022
+
     ![](screens/part8.изменение_порта_на_2022.png)
 
 - Проверим состояние SSHd службы после изменения порта командой `sudo systemctl status ssh`
 
     ![](screens/part8.статус_с_измененным_портом.png)
-    На скриншоте видно, что порт изменен.
+
+    - На скриншоте видно, что порт изменен.
 
 - Покажем наличие процесса sshd, используя команду:
     ```
@@ -471,7 +496,7 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 
     ![](screens/part8.вывод_информации_о_процессах.png)
 
-    >ps - утилита для просмотра списка процессов в Linux. Параметр `-a` - выбрать все процессы всех пользователей, кроме фоновых. Параметр `-u` обозначает ориентированный на пользователя формат, который предоставляет подробную информацию о процессах. Параметр `-x` указывает `ps` перечислить процессы без управляющего терминала. В основном это процессы, которые запускаются во время загрузки и работают в фоновом режиме.\
+    - >ps - утилита для просмотра списка процессов в Linux. Параметр `-a` - выбрать все процессы всех пользователей, кроме фоновых. Параметр `-u` обозначает ориентированный на пользователя формат, который предоставляет подробную информацию о процессах. Параметр `-x` указывает `ps` перечислить процессы без управляющего терминала. В основном это процессы, которые запускаются во время загрузки и работают в фоновом режиме.\
     `grep -i ssh` - выводит только те строчки, где есть ssh с игнорированием регистра за счет `-i`.\
     Символ `|` перенаправляет вывод команды `ps aux` на ввод `grep -i ssh`.
 
@@ -480,6 +505,7 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     netstat -tan
     ```
     ![](screens/part8.вывод_нетстат.png)
+
 - Как видно на скриншоте, вывод команды содержит `tcp 0 0 0.0.0.0:2022 0.0.0.0:* LISTEN`, что соответствует требованию задания.
 
 - >`netstat -tan`\
@@ -519,7 +545,9 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 **== Решение ==**
 
 - Команда `top` выводит на экран:
+
     ![](screens/part9.top_вывод.png)
+
   - uptime - 1 минута;
   - количество авторизованных пользователей - 1;
   - общую загрузку системы - 0.12;
@@ -531,26 +559,37 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 
 - htop:
     - Вывод команды без сортировки
+
     ![](screens/part9.htop_вывод_без_сортировки.png)
 
     - Для сортировки в `htop` нужно нажать `F6` и выбрать параметр сортировки.
     - `htop` отсортированный по `PID`
+
     ![](screens/part9.htop_PID_sort.png)
+
     - `htop` отсортированный по `PERCENT_CPU`
+
     ![](screens/part9.htop_sort_CPU.png)
+
     - `htop` отсортированный по `PERCENT_MEM`
+
     ![](screens/part9.htop_MEM_sort.png)
+
     - `htop` отсортированный по `TIME`
+
     ![](screens/part9.htop_TIME_sort.png)
 
     - Для использования фильтров в `htop` нужно нажать `F4` и выбрать параметр фильтрации.
     - htop, отфильтрованный для процесса SSHd
+
     ![](screens/part9.htop_filter_sshd.png)
 
     - Для использования поиска в `htop` нужно нажать `F3` и ввести объект поиска. `htop` с процессом `syslog`, найденным, используя поиск
+
     ![](screens/part9.htop_syslog_search.png)
 
     - Для добавления отображения дополнительных параметров в `htop`, необходимо нажать `F2` и добавить требуемые параметры. `htop` с добавленным выводом hostname, clock и uptime
+
     ![](screens/part9.htop_вывод_времен_и_хоста.png)
 
 ## Part 10. Использование утилиты **fdisk**
@@ -602,8 +641,10 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     df
     ```
+
     ![](screens/part11.df_дисковое_пространство_корневого_каталога.png)
-    >Для корневого раздела (/):\
+
+    - >Для корневого раздела (/):\
         - Размер раздела: 10218772;\
         - Размер занятого пространства: 5772104;\
         - Размер свободного пространства: 3905996;\
@@ -613,8 +654,10 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     df -Th
     ```
+
     ![](screens/part11.df_Th.png)
-    >Для корневого раздела (/):\
+
+    - >Для корневого раздела (/):\
         - Размер раздела: 9.8;\
         - Размер занятого пространства: 5.6;\
         - Размер свободного пространства: 3.8;\
@@ -637,7 +680,9 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     du
     ```
+
     ![](screens/part12.du_обычный_вызов.png)
+
 - Вывод размера папки /home в байтах и в человекочитаемом виде командами:
     ```
     sudo du -s /home/
@@ -645,7 +690,9 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     sudo du -sh /home/
     ```
+
     ![](screens/part12.du_home.png)
+
 - Вывод размера папки /var в байтах и в человекочитаемом виде командами:
     ```
     sudo du -s /var/
@@ -653,7 +700,9 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     sudo du -sh /var/
     ```
+
     ![](screens/part12.du_var.png)
+
 - Вывод размера папки /var/log в байтах и в человекочитаемом виде командами:
     ```
     sudo du -s /var/log/
@@ -661,7 +710,9 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     sudo du -sh /var/log/
     ```
+
     ![](screens/part12.du_var.log.png)
+
 - Вывод размера всего содержимого папки /var/log в байтах и в человекочитаемом виде командами:
     ```
     sudo du /var/log/
@@ -669,12 +720,14 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     sudo du -h /var/log/
     ```
+
     ![](screens/part12.du_var.log_full.png)
 
 - Вывод размера всего содержимого папки (каждого вложенного элемента) /var/log с использованием `*` командой:
     ```
     sudo du /var/log/* | less
     ```
+
     ![](screens/part12.du_star.png)
 
 ## Part 13. Установка и использование утилиты **ncdu**
@@ -696,10 +749,15 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
 
 - Выведем размер папки `/home`:
+
     ![](screens/part13.ncdu_home.png)
+
 - Выведем размер папки `/var`:
+
     ![](screens/part13.ncdu_var.png)
+
 - Выведем размер папки `/var/log`:
+
     ![](screens/part13.ncdu_var.log.png)
 
 - На скриншотах видно, размеры папок примерно совпадают с полученными в `части 12` [Part 12] задания.
@@ -723,16 +781,21 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     ```
     less /var/log/dmesg
     ```
+
     ![](screens/part14.logs_dmesg.png)
+
 - `/var/log/syslog` — содержит глобальный системный журнал, в котором пишутся сообщения с момента запуска системы, от ядра Linux, различных служб, обнаруженных устройствах, сетевых интерфейсов и много другого. Откроем для просмотра файл `/var/log/syslog` с помощью команды:
     ```
     less /var/log/syslog
     ```
+
     ![](screens/part14.logs_syslog.png)
+
 - `/var/log/auth.log` — информация об авторизации пользователей, включая удачные и неудачные попытки входа в систему, а также задействованные механизмы аутентификации. Откроем для просмотра файл `/var/log/auth.log` с помощью команды:
     ```
     less /var/log/auth.log
     ```
+
     ![](screens/part14.png)
 
 - Время последней успешной авторизации: sep 7, 15:52:52
@@ -744,6 +807,7 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     sudo systemctl restart ssh
     ```
 - В журнале найдем сообщение о перезапуске службы:
+
     ![](screens/part14.logs_sshd_restart.png)
 
 ## Part 15. Использование планировщика заданий **CRON**
@@ -765,21 +829,28 @@ sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
 crontab -e
 ```
 - Добавим строчку `*/2 * * * * uptime`
+
     ![](screens/part15.cron_каждые_2_минуты.png)
+
 - После чего сохраним и закроем файл.
 - Найдем в системных журналах строчки о выполнении `uptime`. Для этого воспользуемся командой:
     ```
     less /var/log/syslog | grep CRON
     ```
+
     ![](screens/part15.cron_uptime_check.png)
+
 - Выведем на экран список текущих заданий для `CRON` с помощью команды:
     ```
     crontab -l
     ```
+
     ![](screens/part15.cron_-l.png)
+
 - Удалим все задания из планировщика заданий `CRON` с помощью команды:
     ```
     crontab -r
     ```
 - Проверим список текщих задач после удаления командой `crontab -l`:
+
     ![](screens/part15.last.png)
